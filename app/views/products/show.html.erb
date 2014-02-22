@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @product.vendor %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Min qty:</strong>
+  <%= @product.min_qty %>
+</p>
+
+<p>
+  <strong>Lead time:</strong>
+  <%= @product.lead_time %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @product.image_url %>
+</p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @product.sku %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @product.notes %>
+</p>
+
+<p>
+  <strong>Qty on hand:</strong>
+  <%= @product.qty_on_hand %>
+</p>
+
+<p>
+  <strong>Set up fee:</strong>
+  <%= @product.set_up_fee %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
