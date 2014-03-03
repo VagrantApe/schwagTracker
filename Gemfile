@@ -28,6 +28,7 @@ group :test do
   gem 'launchy'
   gem 'minitest-rails-capybara'
   gem 'turn'
+  gem 'simplecov'
 end
 
 group :development, :test do
