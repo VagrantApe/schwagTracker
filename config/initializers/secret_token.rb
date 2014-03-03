@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SchwagTracker::Application.config.secret_key_base = '2abf080e3b44b608b4f41c66c906ef68b03e989c098c1b9a42dbaa69e0a18bd96dbac140998b98defcc5a03607bdac3397391541f2292a5504688eba0a309869'
+SchwagTracker::Application.config.secret_key_base = '03d75a0ab5aaa617d9330902cd55f8a48943a116fb234c690cb50a811a29cb86f15f7c4fd7f6651b888cf5680477f4a3de4c4b4c4c4727acc35c0b4acbf08dd3'
