@@ -1,17 +1,18 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :vendor %>
+  <%= f.input :price %>
+  <%= f.input :min_order_qty %>
+  <%= f.input :lead_time %>
+  <%= f.input :image_url %>
+  <%= f.input :sku %>
+  <%= f.input :notes %>
+  <%= f.input :qty_on_hand %>
+  <%= f.input :qty_on_order %>
+  <%= f.input :set_up_fee %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
   </div>
 <% end %>
