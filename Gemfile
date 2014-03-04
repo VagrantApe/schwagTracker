@@ -14,6 +14,7 @@ gem 'figaro', '~> 0.7.0'
 gem 'jquery-rails', '~> 3.1.0'
 gem 'turbolinks', '~> 2.2.1'
 gem 'jbuilder', '~> 1.2'
+gem "devise", "~> 3.2.3"
 
 group :production do
   gem 'pg', '~> 0.17.1'
