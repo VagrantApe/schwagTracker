@@ -1,0 +1,22 @@
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="row-fluid">
+  <div class="col-md-5"><%= f.input :name %>
+  <%= f.input :vendor %>
+  <%= f.input :price %>
+  <%= f.input :min_order_qty %>
+  <%= f.input :lead_time %>
+  <%= f.input :image_url %></div>
+
+  <div class="col-md-5"><%= f.input :sku %>
+  <%= f.input :notes %>
+  <%= f.input :qty_on_hand %>
+  <%= f.input :qty_on_order %>
+  <%= f.input :set_up_fee %></div>
+  </div>
+
+  <div class="form-actions">
+    <div class="col-md-offset-3"><%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %></div>
+  </div>
+<% end %>
