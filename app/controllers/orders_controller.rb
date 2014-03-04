@@ -55,7 +55,7 @@ private
     @order = Order.find(params[:id])
   end
 
-  def orders_params
+  def order_params
     params.require(:order).permit(:received, :invoice_num)
   end
 end
