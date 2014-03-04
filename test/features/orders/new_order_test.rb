@@ -1,11 +1,9 @@
 require "test_helper"
 
-feature "User can create a new order" do
-  scenario "from the new order page" do
+feature "User can access order page" do
+  scenario "in order to add a new order" do
 
-    visit new_order_path
-
-    page.text.must_include ""
+    visit orders_path
 
   end
 end
