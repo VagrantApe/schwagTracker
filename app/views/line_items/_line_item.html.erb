@@ -1,0 +1,6 @@
+<div id='<%= dom_id(line_item) %>'>
+  <%= line_item.product_id %><%= line_item.qty %>
+  <%= comment.created_at.strftime("created on : %m/%d/%Y at I:%M%p") %>
+  <%= link_to 'Destroy', order_line_item(@order), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+  </small>
+</div><br />

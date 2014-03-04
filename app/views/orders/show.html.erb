@@ -4,6 +4,7 @@
 </div>
 
 <dl class="dl-horizontal">
+  <%= render @order.line_items %>
   <dt><strong><%= model_class.human_attribute_name(:received) %>:</strong></dt>
   <dd><%= @order.received %></dd>
   <dt><strong><%= model_class.human_attribute_name(:invoice_num) %>:</strong></dt>
