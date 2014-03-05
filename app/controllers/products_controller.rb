@@ -55,7 +55,7 @@ private
     @product = Product.find(params[:id])
   end
 
-  def products_params
+  def product_params
     params.require(:product).permit(:name, :vendor, :price, :min_order_qty, :lead_time, :image_url, :sku, :notes, :qty_on_hand, :qty_on_order, :set_up_fee)
   end
 end

@@ -1,0 +1,13 @@
+pr:
+  name: Water Bottle
+  vendor: P&G
+  price: $20
+  min_order_qty: 200
+  lead_time: 30
+  image_url:
+  sku: 7757
+  notes: Water Bottle with new design
+  qty_on_hand: 150
+  qty_on_order:
+  set_up_fee: $200
+
