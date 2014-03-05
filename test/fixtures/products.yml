@@ -1,6 +1,6 @@
 pr:
   name: Water Bottle
-  vendor: P&G
+  vendor: Company
   price: $20
   min_order_qty: 200
   lead_time: 30

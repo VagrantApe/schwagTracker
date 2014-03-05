@@ -27,10 +27,10 @@ def edit_order
   page.text.must_include "54321"
 end
 
-# def delete_order
-#   click_on "Delete"
-#   page.wont_have_content "12345"
-# end
+def delete_order
+  click_on "Delete"
+  page.wont_have_content "12345"
+end
 
 def new_product
   visit new_product_path
@@ -47,6 +47,17 @@ def new_product
   click_on "Create Product"
   page.text.must_include "Product was successfully created."
 end
+
+def delete_product
+  click_on "Delete"
+  page.wont_have_content "Company"
+  page.wont_have_content "Water Bottle"
+  page.wont_have_content "$20"
+  page.wont_have_content "Water Bottle with new design"
+  page.wont_have_content "$200"
+  page.wont_have_content "$20"
+end
+
 
 def edit_product
   click_on "Edit"
