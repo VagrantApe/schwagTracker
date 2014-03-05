@@ -1,6 +1,8 @@
-<%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :received %>
-  <%= f.input :invoice_num %>
+<%= form_for @order do |f| %>
+  <%= f.label :received %>
+  <%= f.check_box :received %>
+  <%= f.label :invoice_num %>
+  <%= f.text_field :invoice_num %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

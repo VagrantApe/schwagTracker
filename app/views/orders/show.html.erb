@@ -4,9 +4,11 @@
 </div>
 
 <dl class="dl-horizontal">
-  <div class="line_items">
 
+  <div class="line_items">
+    <%= render @order.line_items %>
   </div>
+
   <dt><strong><%= model_class.human_attribute_name(:received) %>:</strong></dt>
   <dd><%= @order.received %></dd>
   <dt><strong><%= model_class.human_attribute_name(:invoice_num) %>:</strong></dt>
