@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlankCanvas</title>
+    <title>Schwag Tracker</title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -12,7 +12,7 @@
       <% flash.each do |name, msg| %>
       <div id="flash" class="alert alert-<%= name == :notice ? "success" : "error" %>">
         <a class="close" data-dismiss="alert">x</a>
-        <%= msg  %>
+        <%= msg %>
       </div>
       <% end %>
       <%= yield %>
