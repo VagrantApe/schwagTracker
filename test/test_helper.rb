@@ -12,16 +12,16 @@ class ActiveSupport::TestCase
 end
 
 def new_order
-  visit new_order_path
-  fill_in "Invoice num", with: orders(:cn).invoice_num
-  click_on "Create Order"
-  page.text.must_include "Order was successfully created."
+    visit new_order_path
+    fill_in "Invoice Number", with: "54321"
+    click_on "submit"
+    page.text.must_include "Order was successfully created."
 end
 
 def edit_order
   click_on "Edit"
-  fill_in "Invoice num", with: "54321"
-  click_on "Update Order"
+  fill_in "Invoice Number", with: "54321"
+  click_button "submit"
 
   page.text.must_include "Order was successfully updated."
   page.text.must_include "54321"
@@ -34,17 +34,18 @@ end
 
 def new_product
   visit new_product_path
-  fill_in "Name", with: products(:pr).name
-  fill_in "Vendor", with: products(:pr).vendor
-  fill_in "Price", with: products(:pr).price
-  fill_in "Min order qty", with: products(:pr).min_order_qty
-  fill_in "Lead time", with: products(:pr).lead_time
-  fill_in "Sku", with: products(:pr).sku
-  fill_in "Notes", with: products(:pr).notes
-  fill_in "Qty on hand", with: products(:pr).qty_on_hand
-  fill_in "Qty on order", with: products(:pr).qty_on_order
-  fill_in "Set up fee", with: products(:pr).set_up_fee
-  click_on "Create Product"
+  fill_in "Product Name", with: "Water Bottle"
+  fill_in "Vendor Name", with: "Company"
+  fill_in "Price", with: "15"
+  fill_in "Minimum Order", with: "200"
+  fill_in "Lead Time", with: "21"
+  fill_in "Image URL", with: "google.com"
+  fill_in "SKU", with: "ksjsh"
+  fill_in "Product Notes", with: "this is with a new design"
+  fill_in "Current Inventory", with: "400"
+  fill_in "Order Amount", with: "150"
+  fill_in "Setup Fee", with: "300"
+  click_on "submit"
   page.text.must_include "Product was successfully created."
 end
 
@@ -61,11 +62,24 @@ end
 
 def edit_product
   click_on "Edit"
-  fill_in "Name", with: "Ramin"
-  click_on "Update Product"
+  fill_in "Product Name", with: "Ramin"
+  click_on "submit"
   page.text.must_include "Product was successfully updated."
-
 end
+
+def sign_in
+  visit new_user_session_path
+  fill_in "Email", with: users(:lindy).email
+  fill_in "Password", with: 'password'
+  click_on "Sign in"
+end
+
+def sign_out
+  click_on "Sign Out"
+  page.must_have_content "Signed out successfully"
+  page.wont_have_content "There was a problem logging you out"
+end
+
 
 class ActionDispatch::IntegrationTest
   include Rails.application.routes.url_helpers
