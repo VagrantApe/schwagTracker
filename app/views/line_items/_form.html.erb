@@ -1,6 +1,6 @@
-<%= form_for ([@order, @line_item], remote: true) do |f| %>
-  <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true %><%= f.input :qty %>
-  <div class="form-actions">
+<%= form_for([@order, @line_item], remote: true) do |f| %>
+  <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true %> <%= f.label :qty %> <%= f.number_field :qty %>
+  <div class="actions">
     <%= f.button :submit, :class => 'btn-primary' %>
   </div>
 <% end %>
