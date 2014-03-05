@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   after_update :received_order
 
   def received_order
-    if recieved?
+    if received?
       #add received totals to product totals
     end
   end
