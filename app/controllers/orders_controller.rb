@@ -6,6 +6,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @line_items = @order.line_items
+    @line_item = LineItem.new
   end
 
   def new
@@ -13,6 +15,8 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @line_items = @order.line_items
+    @line_item = LineItem.new
   end
 
   def create
@@ -21,7 +25,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @order }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -33,7 +37,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: 'edit' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -45,11 +49,12 @@ class OrdersController < ApplicationController
     @order.destroy
     respond_to do |format|
       format.html { redirect_to orders_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 
 private
+
 
   def set_order
     @order = Order.find(params[:id])

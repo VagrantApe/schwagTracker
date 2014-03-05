@@ -11,3 +11,8 @@
  *= require_tree .
  *= require_self
  */
+.text_area {
+  height: 20em;
+}
+
+@import 'bootstrap';

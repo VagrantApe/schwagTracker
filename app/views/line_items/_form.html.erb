@@ -1,9 +1,6 @@
-<%= simple_form_for @line_item, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :product_id %>
-  <%= f.input :order_id %>
-  <div class="form-actions">
+<%= form_for([@order, @line_item], remote: true) do |f| %>
+  <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true %> <%= f.label :qty %> <%= f.number_field :qty %>
+  <div class="actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                line_items_path, :class => 'btn' %>
   </div>
 <% end %>
