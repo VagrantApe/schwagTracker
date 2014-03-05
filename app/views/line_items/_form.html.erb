@@ -1,4 +1,4 @@
-<%= simple_form_for @line_item, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @line_item, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true %>
   <%= f.input :qty %>
   <%= f.input :order_id %>
