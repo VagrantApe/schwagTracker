@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:vendor) %></th>
       <th><%= model_class.human_attribute_name(:price) %></th>
@@ -24,8 +23,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
-        <td><%= product.name %></td>
+        <td><%= link_to product.name, product_path(product) %></td>
         <td><%= product.vendor %></td>
         <td><%= product.price %></td>
         <td><%= product.min_order_qty %></td>
@@ -36,7 +34,7 @@
         <td><%= product.qty_on_hand %></td>
         <td><%= product.qty_on_order %></td>
         <td><%= product.set_up_fee %></td>
-        <td><%=l product.created_at %></td>
+        <td><%= product.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_product_path(product), :class => 'btn btn-mini' %>

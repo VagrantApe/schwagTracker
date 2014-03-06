@@ -57,7 +57,7 @@ private
   end
 
   def line_item_params
-    params.require(:line_item).permit(:product_id, :order_id)
+    params.require(:line_item).permit(:product_id, :order_id, :qty)
   end
 
   def set_order

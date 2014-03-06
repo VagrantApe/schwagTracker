@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :price, "Price" %></div>
-      <div class="col-sm-7"><%= f.number_field :price, class: "form-control", placeholder: "Unit price" %></div>
+      <div class="col-sm-7"><%= f.number_field :price, value: number_with_precision(f.object.price, precision: 2), class: "form-control", placeholder: "Unit price" %></div>
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :min_order_qty, "Minimum Order" %></div>

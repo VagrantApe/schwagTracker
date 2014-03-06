@@ -4,4 +4,8 @@ class Product < ActiveRecord::Base
   validates :name, presence: true
   validates :sku, uniqueness: true
 
+  def product_low?
+    self.qty_on_hand+self.qty_on_order < self.min_order_qty
+  end
+
 end
