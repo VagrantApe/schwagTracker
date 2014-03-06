@@ -1,7 +1,5 @@
-<% @users.each do |order| %>
-      <tr>
-        <td><%= link_to order.id, order_path(order) %></td>
-        <td><%= order.received %></td>
-        <td><%= order.invoice_num %></td>
-        <td><%=l order.created_at %></td>
-        <td>
+<% @users.each do |user| %>
+  <ul>
+    <li><%= user.name %></li>
+  </ul>
+<% end %>
