@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h2>Products Running Low</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Vendor</th>
+      <th>Price</th>
+      <th>Min Order</th>
+      <th>Lead Time</th>
+      <th>SKU</th>
+      <th>Owned</th>
+      <th>Order Qty</th>
+      <th>Setup Fee</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <% if product.product_low? %>
+        <tr>
+          <td><%= image_tag product.image.url(:thumb) %></td>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td><%= product.vendor %></td>
+          <td>$<%= product.price %></td>
+          <td><%= product.min_order_qty %></td>
+          <td><%= product.lead_time %> days</td>
+          <td><%= product.sku %></td>
+          <td class="make_red"><%= product.qty_on_hand %></td>
+          <td><%= product.qty_on_order %></td>
+          <td>$<%= product.set_up_fee %></td>
+          <td>
+            <%= link_to "edit", edit_product_path(product), class: 'btn btn-sm btn-info' %>
+            <%= link_to "destroy", product_path(product), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-sm btn-danger' %>
+          </td>
+        </tr>
+      <% end%>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "new", new_product_path, class: 'btn btn-primary' %>

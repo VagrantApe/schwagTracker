@@ -1,7 +1,7 @@
 <%= form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
 <div class="col-md-offset-2 col-md-8">
   <div class="form-group">
-    <div class="col-md-3 control-label"><%= f.label :invoice_num, "Invoice Number" %></div>
+    <div class="col-md-3 control-label"><%= f.label :invoice_num, "Invoice #" %></div>
     <div class="col-md-3"><%= f.text_field :invoice_num, class: "form-control" %></div>
     <div class="col-md-3 control-label"><%= f.label :received, "Recieved" %></div>
     <div class="col-md-1"><%= f.check_box :received, class: "form-control" %></div>
