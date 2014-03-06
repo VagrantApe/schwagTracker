@@ -13,12 +13,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav pull-right">
         <% if current_user %>
-          <li><%= link_to "Signed In" %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
           <li><%= link_to "Inventory", products_path %></li>
           <li><%= link_to "Orders", orders_path %></li>
+          <li><%= link_to "Account Settings", edit_user_registration_path %></li>
         <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%#= link_to "Sign Up", new_user_registration_path %></li>
           <li><%= link_to "Sign In", new_user_session_path  %></li>
         <% end %>
       </ul>

@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   before_action :set_order, only: [:new, :update, :create, :edit, :destroy]
+  load_and_authorize_resource
 
   def index
     @order

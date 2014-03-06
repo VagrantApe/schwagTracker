@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 1.2'
 gem "devise", "~> 3.2.3"
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
+gem 'cancan'
 
 group :production do
   gem 'pg', '~> 0.17.1'
