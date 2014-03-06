@@ -3,7 +3,6 @@ class Order < ActiveRecord::Base
   scope :not_received, where(received: false)
   has_many :line_items, dependent: :destroy
   has_many :products, through: :line_items
-  #validates :invoice_num, uniqueness: true
   after_update :received_order
 
   def received_order
@@ -23,13 +22,5 @@ class Order < ActiveRecord::Base
   def received?
     received == true
   end
-
-  # def self.all_received
-  #   all conditions: where(received: true)
-  # end
-
-  # def self.all_not_received
-  #   all conditions: where(received: false)
-  # end
 
 end

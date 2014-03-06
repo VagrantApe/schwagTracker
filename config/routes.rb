@@ -1,5 +1,6 @@
 SchwagTracker::Application.routes.draw do
   devise_for :users
+  resources :users
   root 'welcome#index'
 
   resources :products

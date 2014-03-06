@@ -12,9 +12,11 @@ class LineItem < ActiveRecord::Base
   end
 
   def destroy_order_qty_on_product
-    product = Product.find(self.product_id)
-    product.qty_on_order -= self.qty
-    product.save!
+    unless self.order.received?
+      product = Product.find(self.product_id)
+      product.qty_on_order -= self.qty
+      product.save!
+    end
   end
 
 
