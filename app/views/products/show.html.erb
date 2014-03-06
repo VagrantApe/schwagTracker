@@ -26,6 +26,8 @@
   <dd><%= @product.qty_on_order %></dd>
   <dt><strong><%= model_class.human_attribute_name(:set_up_fee) %>:</strong></dt>
   <dd><%= @product.set_up_fee %></dd>
+  <%= image_tag @product.image.url(:medium) %>
+
 </dl>
 
 <div class="form-actions">
