@@ -1,26 +1,28 @@
 <%- model_class = Order -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h2>Pending Orders</h2>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Recieved</th>
-      <th>Invoice #</th>
+      <th>Order ID</th>
+      <th>Order Recieved</th>
+      <th>Invoice Number</th>
       <th>Created</th>
-      <th>Options</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @orders.each do |order| %>
+    <% if !order.received? %>
       <tr>
         <td><%= link_to order.id, order_path(order) %></td>
         <td><%= order.received %></td>
         <td><%= order.invoice_num %></td>
         <td><%= order.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
         <td>
-          <%= link_to "edit", edit_order_path(order), class: 'btn btn-sm btn-info' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_order_path(order), :class => 'btn btn-sm btn-info' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       order_path(order),
                       :method => :delete,
@@ -29,7 +31,10 @@
         </td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
 </table>
 
-<%= link_to "new", new_order_path, class: 'btn btn-primary' %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_order_path,
+            :class => 'btn btn-primary' %>

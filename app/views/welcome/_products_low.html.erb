@@ -1,0 +1,51 @@
+<%- model_class = Product -%>
+<div class="page-header">
+  <h2>Products Running Low</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Vendor</th>
+      <th>Price</th>
+      <th>Min Order</th>
+      <th>Lead Time</th>
+      <th>SKU</th>
+      <th>Owned</th>
+      <th>Order Qty</th>
+      <th>Setup Fee</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <% if product.product_low? %>
+        <tr>
+          <td><%= image_tag product.image.url(:thumb) %></td>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td><%= product.vendor %></td>
+          <td>$<%= product.price %></td>
+          <td><%= product.min_order_qty %></td>
+          <td><%= product.lead_time %> days</td>
+          <td><%= product.sku %></td>
+          <td class="make_red"><%= product.qty_on_hand %></td>
+          <td><%= product.qty_on_order %></td>
+          <td>$<%= product.set_up_fee %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_product_path(product), :class => 'btn btn-sm btn-info' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+            product_path(product),
+            :method => :delete,
+            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+            :class => 'btn btn-sm btn-danger' %>
+          </td>
+        </tr>
+      <% end%>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+new_product_path,
+:class => 'btn btn-primary' %>
