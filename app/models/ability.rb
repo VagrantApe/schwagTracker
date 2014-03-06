@@ -7,10 +7,13 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
-      else
-        cannot :manage, :all
       end
-
+      if user.role?(:mod)
+        can :create, Order
+        can :update, Products do |product|
+          product.try(:user) == user
+        end
+      end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
