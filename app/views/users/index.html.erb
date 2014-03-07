@@ -1,8 +1,26 @@
-<br />
-<br />
-<br />
-<% @users.each do |user| %>
-  <ul>
-    <li><%= user.email %></li>
-  </ul>
-<% end %>
+<div class="page-header">
+  <div class="col-md-offset-5 col-med-2">
+    <h1>Users</h1>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td>
+        <%= link_to "edit", edit_user_path(user), class: 'btn btn-sm btn-info' %>
+        <%= link_to "delete", user_path(user), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "new", new_user_path, class: 'btn btn-primary' %>
