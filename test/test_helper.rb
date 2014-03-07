@@ -67,7 +67,7 @@ def edit_product
   page.text.must_include "Product was successfully updated."
 end
 
-def sign_in
+def sign_in(role = :admin)
   visit new_user_session_path
   fill_in "Email", with: users(:lindy).email
   fill_in "Password", with: 'password'
@@ -76,7 +76,7 @@ end
 
 def sign_out
   click_on "Sign Out"
-  page.must_have_content "Signed out successfully"
+  page.must_have_content "You are not authorized to access this page."
   page.wont_have_content "There was a problem logging you out"
 end
 
