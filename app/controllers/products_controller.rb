@@ -4,7 +4,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-
+    respond_to do |format|
+      format.html {@products}
+      format.json {render json: @products}
+    end
   end
 
   def show
@@ -21,6 +24,14 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.min_order_qty ||= 0
+    @product.lead_time ||= 0
+    @product.image_url ||= ''
+    @product.sku ||= ''
+    @product.notes ||= ''
+    @product.qty_on_hand ||= 0
+    @product.qty_on_order ||= 0
+    @product.set_up_fee ||= 0
 
     respond_to do |format|
       if @product.save

@@ -22,10 +22,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
+    @order.received = false
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to edit_order_path(@order), notice: 'Order was successfully created.' }
         format.js
       else
         format.html { render action: 'new' }
@@ -55,8 +55,6 @@ class OrdersController < ApplicationController
   end
 
 private
-
-
   def set_order
     @order = Order.find(params[:id])
   end

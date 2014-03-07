@@ -1,5 +1,4 @@
-<%# if user_signed_in? cannot? :manage @product, @order %>
-<%#= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>
-<%# else %>
-<%#= redirect_to new_user_session_path %>
-<%# end %>
+
+<%= render 'products_low' %>
+<%= render 'pending_orders' %>
+
