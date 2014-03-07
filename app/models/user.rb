@@ -9,9 +9,7 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  def other?
+  def mod?
     role == 'mod'
   end
-
-
 end
