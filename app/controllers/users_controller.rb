@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  load_and_authorize_resource
   def index
     @users = User.all
   end
@@ -14,10 +14,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    #@user.role = 'mod'
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path, notice: 'Mod was successfully created.' }
+        format.html { redirect_to users_path, notice: "#{@user.role.capitalize} was successfully created." }
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
