@@ -11,6 +11,14 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+   <p>
+    <%= f.label :roles %><br />
+    <%= f.radio_button(:role, 'admin') %>
+    <%= label_tag(:role, "Administrator") %><br />
+    <%= f.radio_button(:role, 'mod', checked: true) %>
+    <%= label_tag(:role, "Moderator") %>
+  </p>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

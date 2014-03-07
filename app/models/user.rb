@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable
 
+  ROLES = %w[admin mod]
+
   def admin?
     role == 'admin'
   end
@@ -11,8 +13,5 @@ class User < ActiveRecord::Base
     role == 'mod'
   end
 
-  # def role?(base_role)
-  #       role.present? && ROLES.index(base_role.to_s) <= ROLES.index(role)
-  # end
 
 end
