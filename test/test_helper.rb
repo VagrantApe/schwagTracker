@@ -20,6 +20,23 @@ def new_order
     page.text.must_include "Order was successfully updated."
 end
 
+def new_order_line_item
+    visit new_order_path
+    fill_in "Invoice #", with: "54321"
+    click_on "submit"
+    page.text.must_include "Order was successfully created."
+    first('#new_link').click
+    page.text.must_include "Edit Order"
+    select('Water Bottle', :from => "line_item[product_id]")
+    save_and_open_page
+    # select("Water Bottle", :from => 'Select Product')
+    fill_in "Quantity", with: "15"
+    click_on "submit"
+    page.text.must_include "Destroy"
+    click_on "submit"
+    page.text.must_include "Order was successfully updated."
+end
+
 def edit_order_received
   click_on "edit"
   fill_in "Invoice #", with: "54321"
@@ -83,6 +100,17 @@ def sign_in(role = :admin)
   fill_in "Email", with: users(:lindy).email
   fill_in "Password", with: 'password'
   click_on "Sign in"
+  page.text.must_include "Signed in successfully."
+end
+
+def new_mod
+  visit new_user_path
+  fill_in "Email", with: users(:mod).email
+  fill_in "Password", with: 'password'
+  fill_in "Password", with: 'password'
+  save_and_open_page
+  click_on "Sign up"
+  page.text.must_include "Mod was successfully created."
 end
 
 def sign_out

@@ -3,7 +3,7 @@ lindy:
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   role: admin
 
-other:
-  email: other@codefellows.org
+mod:
+  email: mod@codefellows.org
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   role: mod
