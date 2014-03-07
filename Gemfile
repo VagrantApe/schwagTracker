@@ -17,6 +17,7 @@ gem "devise", "~> 3.2.3"
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
 gem 'cancancan', '~> 1.7'
+gem 'will_paginate', '~> 3.0'
 
 group :production do
   gem 'pg', '~> 0.17.1'
