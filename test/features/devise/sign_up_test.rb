@@ -1,11 +1,11 @@
-require "test_helper"
+# require "test_helper"
 
-feature "As an Admin I Want to Create Moderators" do
-  scenario "so they can help me track my inventory" do
+# feature "As an Admin I Want to Create Moderators" do
+#   scenario "so they can help me track my inventory" do
 
-    sign_in
+#     sign_in
 
-    new_mod
+#     new_mod
 
-  end
-end
+#   end
+# end
