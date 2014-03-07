@@ -4,9 +4,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Order ID</th>
-      <th>Order Recieved</th>
       <th>Invoice #</th>
+      <th>Order Recieved</th>
       <th>Created</th>
       <th>Options</th>
     </tr>
@@ -15,9 +14,8 @@
     <% @orders.each do |order| %>
       <% if !order.received? %>
         <tr>
-          <td><%= link_to order.id, order_path(order) %></td>
+          <td><%= link_to order.invoice_num, order_path(order) %></td>
           <td><%= order.received %></td>
-          <td><%= order.invoice_num %></td>
           <td><%= order.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
           <td>
             <%= link_to "edit", edit_order_path(order), class: 'btn btn-sm btn-info' %>

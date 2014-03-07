@@ -13,22 +13,52 @@ end
 
 def new_order
     visit new_order_path
-    fill_in "Invoice Number", with: "54321"
+    fill_in "Invoice #", with: "54321"
     click_on "submit"
     page.text.must_include "Order was successfully created."
+    click_on "submit"
+    page.text.must_include "Order was successfully updated."
 end
 
+def new_order_line_item
+    visit new_order_path
+    fill_in "Invoice #", with: "54321"
+    click_on "submit"
+    page.text.must_include "Order was successfully created."
+    first('#new_link').click
+    page.text.must_include "Edit Order"
+    select('Water Bottle', :from => "line_item[product_id]")
+    save_and_open_page
+    # select("Water Bottle", :from => 'Select Product')
+    fill_in "Quantity", with: "15"
+    click_on "submit"
+    page.text.must_include "Destroy"
+    click_on "submit"
+    page.text.must_include "Order was successfully updated."
+end
+
+def edit_order_received
+  click_on "edit"
+  fill_in "Invoice #", with: "54321"
+  check('Recieved')
+  click_on "submit"
+
+  page.text.must_include "Order was successfully updated."
+  page.text.must_include "54321"
+end
+
+
 def edit_order
-  click_on "Edit"
-  fill_in "Invoice Number", with: "54321"
-  click_button "submit"
+  click_on "edit"
+  fill_in "Invoice #", with: "54321"
+  click_on "submit"
 
   page.text.must_include "Order was successfully updated."
   page.text.must_include "54321"
 end
 
 def delete_order
-  click_on "Delete"
+  click_on "delete"
   page.wont_have_content "12345"
 end
 
@@ -39,18 +69,16 @@ def new_product
   fill_in "Price", with: "15"
   fill_in "Minimum Order", with: "200"
   fill_in "Lead Time", with: "21"
-  fill_in "Image URL", with: "google.com"
   fill_in "SKU", with: "ksjsh"
   fill_in "Product Notes", with: "this is with a new design"
   fill_in "Current Inventory", with: "400"
-  fill_in "Order Amount", with: "150"
   fill_in "Setup Fee", with: "300"
   click_on "submit"
   page.text.must_include "Product was successfully created."
 end
 
 def delete_product
-  click_on "Delete"
+  click_on "delete"
   page.wont_have_content "Company"
   page.wont_have_content "Water Bottle"
   page.wont_have_content "$20"
@@ -61,22 +89,33 @@ end
 
 
 def edit_product
-  click_on "Edit"
+  click_on "edit"
   fill_in "Product Name", with: "Ramin"
   click_on "submit"
   page.text.must_include "Product was successfully updated."
 end
 
-def sign_in
+def sign_in(role = :admin)
   visit new_user_session_path
   fill_in "Email", with: users(:lindy).email
   fill_in "Password", with: 'password'
   click_on "Sign in"
+  page.text.must_include "Signed in successfully."
+end
+
+def new_mod
+  visit new_user_path
+  fill_in "Email", with: users(:mod).email
+  fill_in "Password", with: 'password'
+  fill_in "Password", with: 'password'
+  save_and_open_page
+  click_on "Sign up"
+  page.text.must_include "Mod was successfully created."
 end
 
 def sign_out
   click_on "Sign Out"
-  page.must_have_content "Signed out successfully"
+  page.must_have_content "Signed out successfully."
   page.wont_have_content "There was a problem logging you out"
 end
 

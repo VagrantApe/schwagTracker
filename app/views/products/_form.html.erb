@@ -11,15 +11,17 @@
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :price, "Price" %></div>
+
       <div class="col-sm-7"><%= f.number_field :price, step: 0.01, class: "form-control", placeholder: "Unit price" %></div>
+
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :min_order_qty, "Minimum Order" %></div>
-      <div class="col-sm-7"><%= f.number_field :min_order_qty, class: "form-control", placeholder: "Minimum order quantity" %></div>
+      <div class="col-sm-7"><%= f.number_field :min_order_qty, class: "form-control", :step => 0.01, placeholder: "Minimum order quantity" %></div>
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :lead_time, "Lead Time" %></div>
-      <div class="col-sm-7"><%= f.number_field :lead_time, class: "form-control", placeholder: "Lead time in days" %></div>
+      <div class="col-sm-7"><%= f.number_field :lead_time, class: "form-control", :step => 0.01, placeholder: "Lead time in days" %></div>
     </div>
   </div>
   <div class="col-md-5">
@@ -33,11 +35,13 @@
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :qty_on_hand, "Current Inventory" %></div>
-      <div class="col-sm-7"><%= f.number_field :qty_on_hand, class: "form-control", placeholder: "Amount currently inventoried" %></div>
+      <div class="col-sm-7"><%= f.number_field :qty_on_hand, :step => 0.01, class: "form-control", placeholder: "Amount currently inventoried" %></div>
     </div>
     <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :set_up_fee, "Setup Fee" %></div>
+
       <div class="col-sm-7"><%= f.number_field :set_up_fee, step: 0.01, class: "form-control", placeholder: "Cost for setup" %></div>
+
     </div>
       <div class="form-group">
       <div class="col-sm-4 control-label"><%= f.label :image %></div>

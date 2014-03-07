@@ -12,13 +12,13 @@
     <br>
     <div class="form-group">
       <div class="col-sm-3 control-label"><%= f.label :password, "Password" %></div>
-      <div class="col-sm-6 input-group"><%= f.password_field :password, :autocomplete => "off", class: "form-control", placeholder: "User password" %>
+      <div class="col-sm-6"><%= f.password_field :password, :autocomplete => "off", class: "form-control", placeholder: "User password" %>
       </div>
     </div>
     <br>
     <div class="form-group">
       <div class="col-sm-3 control-label"><%= f.label :password_confirmation, "Confirm" %></div>
-      <div class="col-sm-6 input-group"><%= f.password_field :password_confirmation, :autocomplete => "off", class: "form-control", placeholder: "Retype Password" %>
+      <div class="col-sm-6"><%= f.password_field :password_confirmation, :autofocus => true, class: "form-control", placeholder: "Retype Password" %>
       </div>
     </div>
     <p class="col-md-offset-3">
