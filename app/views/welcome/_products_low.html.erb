@@ -38,6 +38,8 @@
         </tr>
       <% end%>
     <% end %>
+
+    <%= will_paginate @products %>
   </tbody>
 </table>
 <%= link_to "new", new_product_path, class: 'btn btn-primary' %>

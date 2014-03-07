@@ -12,10 +12,10 @@ class WelcomeController < ApplicationController
   private
 
   def set_product
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 5)
   end
 
   def set_order
-    @orders = Order.all
+    @orders = Order.paginate(page: params[:page], per_page: 5)
   end
 end

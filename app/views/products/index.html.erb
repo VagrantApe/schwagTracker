@@ -1,5 +1,7 @@
 <div class="page-header">
-  <h1>Available Products</h1>
+  <div class="col-md-offset-4 col-med-2">
+    <h1>Available Products</h1>
+  </div>
 </div>
 <table class="table table-striped">
   <thead>
@@ -19,24 +21,25 @@
   </thead>
   <tbody>
     <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.image.url(:thumb) %></td>
-        <td><%= link_to product.name, product_path(product) %></td>
-        <td><%= product.vendor %></td>
-        <td>$<%= product.price %></td>
-        <td><%= product.min_order_qty %></td>
-        <td><%= product.lead_time %> days</td>
-        <td><%= product.sku %></td>
-        <td><%= product.qty_on_hand %></td>
-        <td><%= product.qty_on_order %></td>
-        <td>$<%= product.set_up_fee %></td>
-        <td>
-          <%= link_to "edit", edit_product_path(product), class: 'btn btn-sm btn-info' %>
-          <%= link_to "delete", product_path(product), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-sm btn-danger' %>
-        </td>
-      </tr>
+    <tr>
+      <td><%= image_tag product.image.url(:thumb) %></td>
+      <td><%= link_to product.name, product_path(product) %></td>
+      <td><%= product.vendor %></td>
+      <td>$<%= product.price %></td>
+      <td><%= product.min_order_qty %></td>
+      <td><%= product.lead_time %> days</td>
+      <td><%= product.sku %></td>
+      <td><%= product.qty_on_hand %></td>
+      <td><%= product.qty_on_order %></td>
+      <td>$<%= product.set_up_fee %></td>
+      <td>
+        <%= link_to "edit", edit_product_path(product), class: 'btn btn-sm btn-info' %>
+        <%= link_to "delete", product_path(product), :data => { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
     <% end %>
+
+    <%= will_paginate @products %>
   </tbody>
 </table>
-
 <%= link_to "new", new_product_path, class: 'btn btn-primary' %>

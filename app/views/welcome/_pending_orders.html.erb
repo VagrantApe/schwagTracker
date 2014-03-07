@@ -26,6 +26,8 @@
         </tr>
       <% end %>
     <% end %>
+
+    <%= will_paginate @orders %>
   </tbody>
 </table>
 <%= link_to "new", new_order_path, class: 'btn btn-primary' %>

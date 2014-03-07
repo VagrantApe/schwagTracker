@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @orders = Order.all
+    @orders = Order.paginate(page: params[:page], per_page: 10)
   end
 
   def show

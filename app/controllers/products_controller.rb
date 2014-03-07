@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html {@products}
       format.json {render json: @products}
